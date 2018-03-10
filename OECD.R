@@ -22,7 +22,6 @@ fit<-kmeans(OECD2[,2:length(OECD2)], center=3)
 names(fit)
 OECD2$cluster<-fit$cluster
 
-dev.off()
 
 #bivariate plot 
 plot(OECD2[,c(2,8)])
