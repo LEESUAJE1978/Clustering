@@ -21,7 +21,7 @@ set.seed(9999)
 fit<-kmeans(OECD2[,2:length(OECD2)], center=3)
 names(fit)
 OECD2$cluster<-fit$cluster
-
+fit
 
 #bivariate plot 
 plot(OECD2[,c(2,8)])
@@ -32,3 +32,5 @@ plot(OECD2[,c(2,8)], col=OECD2$cluster+5, pch=20, cex=2)
 library(corrplot)
 corrplot(OECD2_cor, method = "shade", shade.col = NA, tl.col = 'black', tl.srt = 45)
 
+#
+summaryBy(.~cluster_result,data=OECD2,FUN=c(length,mean,median))
